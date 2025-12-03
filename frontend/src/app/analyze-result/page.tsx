@@ -6,6 +6,7 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 import { useCV } from "@/context/CVContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function AnalyzeResult() {
   const { analyzeResult, setAnalyzeResult, loading, setLoading } = useCV();
@@ -57,7 +58,7 @@ export default function AnalyzeResult() {
         <h1 className="text-xl md:text-2xl font-bold mb-2">Your CV Analyze</h1>
         <p>Here is your CV analyze result by AI</p>
       </div>
-      <div className="w-full max-w-10/12 md:max-w-4xl flex flex-col justify-center items-center gap-8">
+      <div className="w-full max-w-10/12 md:max-w-4xl pb-10 flex flex-col justify-center items-center gap-8 border-b border-sky-500/50">
         <AnalyzeItem title="Missing Sections">
           <ul className="w-full">
             {analyzeResult.missingSections.map((section, index) => (
@@ -121,9 +122,19 @@ export default function AnalyzeResult() {
         </AnalyzeItem>
         <button
           onClick={handleDownload}
-          className="px-5 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          className="px-5 py-3 bg-sky-600 text-white rounded-md hover:bg-sky-700"
         >
           Download PDF
+        </button>
+      </div>
+      <div className="flex flex-col items-center gap-5">
+        <p>Ready to take the next step?</p>
+        <button
+          onClick={() => router.push("/interview")}
+          className="px-5 py-3 flex items-center bg-sky-600 text-white rounded-md hover:bg-sky-700"
+        >
+          Practice Mock Interview
+          <FaArrowRightLong className="ml-3" />
         </button>
       </div>
     </div>

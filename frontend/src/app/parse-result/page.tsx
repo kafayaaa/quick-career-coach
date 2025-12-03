@@ -4,11 +4,13 @@ import CVParseSection from "@/components/CVParseSection";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import TableField from "@/components/TableField";
 import { useCV } from "@/context/CVContext";
+import { useInterview } from "@/context/InterviewContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function ParseResult() {
   const { result, setResult, analyzeResult, setAnalyzeResult } = useCV();
+  const { setRole } = useInterview();
   const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
@@ -82,6 +84,7 @@ export default function ParseResult() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setRole(formData.targetRole);
   };
 
   const handleArrayChange = (
@@ -104,6 +107,7 @@ export default function ParseResult() {
       return;
     }
 
+    localStorage.setItem("newCV", JSON.stringify(formData));
     setLoading(true);
 
     try {

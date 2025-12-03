@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Playfair_Display, Sora } from "next/font/google";
 import "./globals.css";
 import { CVProvider } from "@/context/CVContext";
+import ThemeToggle from "@/components/ThemeToggle";
+import { InterviewProvider } from "@/context/InterviewContext";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
@@ -9,7 +11,6 @@ const playfairDisplay = Playfair_Display({
 });
 
 const sora = Sora({
-  weight: ["400", "600", "700"],
   variable: "--font-sora",
   subsets: ["latin"],
 });
@@ -29,8 +30,15 @@ export default function RootLayout({
       <body
         className={`${playfairDisplay.variable} ${sora.variable} antialiased`}
       >
-        <div className="font-sora text-zinc-900 dark:text-zinc-50 bg-zinc-50 dark:bg-zinc-800">
-          <CVProvider>{children}</CVProvider>
+        <div
+          className=" font-sora 
+        
+        "
+        >
+          <CVProvider>
+            <InterviewProvider>{children}</InterviewProvider>
+          </CVProvider>
+          <ThemeToggle />
         </div>
       </body>
     </html>

@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
+/* ---------------------------
+   1. Base CSS Variables
+--------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: oklch(98.5% 0 0);
+  --foreground: oklch(14.1% 0.005 285.823);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --primary: #2563eb;
+  --secondary: #64748b;
+
+  /* Font families injected from next/font */
   --font-sora: var(--font-sora);
   --font-playfair-display: var(--font-playfair-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ---------------------------
+   2. Dark Mode Variables
+      (aktif saat html.dark)
+--------------------------- */
+.dark {
+  --background: oklch(27.4% 0.006 286.033);
+  --foreground: oklch(98.5% 0 0);
+
+  --primary: #3b82f6;
+  --secondary: #94a3b8;
 }
 
+/* ---------------------------
+   3. Tailwind @theme inline 
+      mapping → membuat variabel 
+      bisa dipakai di utility Tailwind
+--------------------------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+
+  --font-sora: var(--font-sora);
+  --font-playfair-display: var(--font-playfair-display);
+}
+
+/* ---------------------------
+   4. Apply to body
+--------------------------- */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sora), var(--font-playfair-display), serif;
+  font-family: var(--font-sora), var(--font-playfair-display), sans-serif;
 }
