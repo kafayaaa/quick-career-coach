@@ -1,0 +1,28 @@
+import { Request, Response } from "express";
+import { aiAnalyzeCV } from "../utils/aiAnalyze";
+
+export const analyzeCV = async (req: Request, res: Response) => {
+  try {
+    if (!req.body) {
+      alert("No data provided");
+      return res.status(400).json({ error: "No data provided" });
+    }
+    const data = req.body;
+    console.log("Received Data: ", data);
+
+    const aiData = await aiAnalyzeCV(data, data.targetRole);
+    console.log(aiData);
+
+    if (!aiData) {
+      return res.status(500).json({ error: "AI returned no result" });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: aiData,
+    });
+  } catch (error: any) {
+    console.error("Error analyzing CV:", error);
+    return res.status(500).json({ error: error.message });
+  }
+};
