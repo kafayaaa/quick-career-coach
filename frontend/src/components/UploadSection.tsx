@@ -1,21 +1,8 @@
 "use client";
-
-import { supabase } from "@/lib/supabaseClient";
 import { MdArrowRightAlt } from "react-icons/md";
-import { useEffect, useState } from "react";
-import CVUploadParser from "./CVUploadParser";
+import Link from "next/link";
 
 export default function UploadSection() {
-  const [userId, setUserId] = useState<string | null>(null);
-
-  useEffect(() => {
-    const getUser = async () => {
-      const { data } = await supabase.auth.getUser();
-      setUserId(data.user?.id || null);
-    };
-    getUser();
-  }, []);
-
   return (
     <div
       id="upload-cv"
@@ -35,8 +22,10 @@ export default function UploadSection() {
           <li>Identify skill gaps</li>
         </ol>
       </div>
-      <div className="w-2/3 md:w-full max-w-sm flex flex-col items-center gap-3">
-        <CVUploadParser userId={userId || undefined} />
+      <div>
+        <Link href="/skill-gap" className="px-3 py-2 rounded bg-sky-500">
+          Check your skill gap
+        </Link>
       </div>
     </div>
   );

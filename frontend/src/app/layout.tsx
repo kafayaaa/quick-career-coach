@@ -4,6 +4,8 @@ import "./globals.css";
 import { CVProvider } from "@/context/CVContext";
 import ThemeToggle from "@/components/ThemeToggle";
 import { InterviewProvider } from "@/context/InterviewContext";
+import Navbar from "@/components/Navbar";
+import { MuiThemeProvider } from "./theme-provider";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
@@ -26,17 +28,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`${playfairDisplay.variable} ${sora.variable} antialiased`}
       >
-        <div
-          className=" font-sora 
-        
-        "
-        >
+        <div className="font-sora bg-zinc-50 dark:bg-zinc-900 text-zinc-950 dark:text-zinc-50">
           <CVProvider>
-            <InterviewProvider>{children}</InterviewProvider>
+            <InterviewProvider>
+              <MuiThemeProvider>
+                <Navbar />
+                {children}
+              </MuiThemeProvider>
+            </InterviewProvider>
           </CVProvider>
           <ThemeToggle />
         </div>

@@ -8,7 +8,8 @@ export async function aiAnalyzeCV(cvData: string, targetRole: string) {
 
             Return your ENTIRE RESPONSE strictly in valid JSON ONLY.
             Do NOT include explanation outside JSON.
-            Do NOT include markdown.  
+            Do NOT include markdown.
+            Do NOT include backticks.  
             Do NOT include text before or after JSON.
 
             Here is the CV data:

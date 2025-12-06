@@ -7,7 +7,8 @@ export async function aiEvaluate(submissions: any[]) {
 
             Return your ENTIRE RESPONSE strictly in valid JSON ONLY.
             Do NOT include explanation outside JSON.
-            Do NOT include markdown.  
+            Do NOT include markdown.
+            Do NOT include backticks.  
             Do NOT include text before or after JSON.
 
             Evaluation criteria:

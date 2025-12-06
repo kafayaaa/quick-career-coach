@@ -41,3 +41,8 @@ export interface CVResult {
   rawText: string;
   extractedByAI: AICVExtraction;
 }
+
+export interface CVSkill {
+  hard_skill: string[];
+  soft_skill: string[];
+}

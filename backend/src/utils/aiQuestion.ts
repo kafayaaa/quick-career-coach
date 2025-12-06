@@ -7,7 +7,8 @@ export async function aiQuestion(newCV: any, level: string) {
 
             Return your ENTIRE RESPONSE strictly in valid JSON ONLY.
             Do NOT include explanation outside JSON.
-            Do NOT include markdown.  
+            Do NOT include markdown.
+            Do NOT include backticks.  
             Do NOT include text before or after JSON.            
 
             Generate 3 mock interview questions for the role: ${newCV.targetRole}.
