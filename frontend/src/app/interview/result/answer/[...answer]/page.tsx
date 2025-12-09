@@ -87,14 +87,27 @@ export default function DetailedResult() {
   return (
     <div className="w-full flex flex-col gap-3">
       <div className="flex flex-col pb-5 border-b">
-        <h2 className="font-bold">
-          {questionType?.type === "behavioral"
-            ? "Behavioral"
-            : questionType?.type === "technical"
-            ? "Technical"
-            : "Situational"}{" "}
-          Question
-        </h2>
+        <div className="w-full flex justify-between">
+          <h2 className="font-bold">
+            {questionType?.type === "behavioral"
+              ? "Behavioral"
+              : questionType?.type === "technical"
+              ? "Technical"
+              : "Situational"}{" "}
+            Question
+          </h2>
+          <h1
+            className={`font-bold ${
+              evaluationData.score < 50
+                ? "text-rose-500"
+                : evaluationData.score <= 75
+                ? "text-amber-500"
+                : "text-emerald-500"
+            }`}
+          >
+            {evaluationData.score}
+          </h1>
+        </div>
         <p className="text-justify text-sm md:text-base">
           {questionType?.question}
         </p>
