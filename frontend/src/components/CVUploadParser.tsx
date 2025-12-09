@@ -35,6 +35,7 @@ export default function CVUploadParser() {
       });
 
       // Simpan BASE64 ke localStorage
+      localStorage.setItem("CVname", file.name);
       localStorage.setItem("uploadedCV", base64);
 
       const form = new FormData();

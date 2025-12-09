@@ -19,7 +19,7 @@ export default function OverviewCard({ title, score, children }: Props) {
     status = "pass";
   }
   return (
-    <div className="w-full p-5 flex flex-col gap-3 bg-zinc-100 dark:bg-zinc-700 rounded-lg">
+    <div className="w-full p-5 flex flex-col gap-3 bg-zinc-100 dark:bg-zinc-700 rounded-lg hover:scale-105 transition-all duration-300 ease-out">
       <div className="flex items-center gap-2">
         {children}
         <p className="text-xs">{title}</p>
@@ -66,7 +66,7 @@ export default function OverviewCard({ title, score, children }: Props) {
       <LinearProgress
         value={score}
         variant="determinate"
-        className="!h-1.5 !bg-zinc-300 dark:!bg-zinc-500 !rounded-full"
+        className="!h-1.5 !bg-zinc-300 dark:!bg-zinc-500 rounded-full"
         classes={{
           bar: `${
             status === "pass"

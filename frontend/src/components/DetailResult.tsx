@@ -1,12 +1,15 @@
 import { FaRegCircleCheck } from "react-icons/fa6";
 import {
   FcAnswers,
+  FcApproval,
   FcBriefcase,
   FcBusinessContact,
   FcCollect,
   FcDocument,
   FcGraduationCap,
+  FcOpenedFolder,
   FcOrganization,
+  FcRating,
   FcSearch,
 } from "react-icons/fc";
 import { RiErrorWarningLine } from "react-icons/ri";
@@ -30,7 +33,7 @@ export default function DetailResult({ title, desc, score, children }: Props) {
   }
   return (
     <div
-      className={`w-full p-5 flex justify-center items-start gap-2 rounded-xl border ${
+      className={`w-full p-5 flex justify-center items-start gap-2 rounded-xl border dark:border-l-4 dark:border-r-0 dark:border-y-0 hover:scale-102 transition-all duration-300 ease-out ${
         status === "pass"
           ? "bg-emerald-50 dark:bg-zinc-700 border-emerald-200"
           : status === "warning"
@@ -69,6 +72,12 @@ export default function DetailResult({ title, desc, score, children }: Props) {
             <FcSearch />
           ) : title === "Professional Summary" ? (
             <FcBriefcase />
+          ) : title === "Projects" ? (
+            <FcOpenedFolder />
+          ) : title === "Achievements" ? (
+            <FcRating />
+          ) : title === "Certifications" ? (
+            <FcApproval />
           ) : (
             ""
           )}
@@ -77,7 +86,7 @@ export default function DetailResult({ title, desc, score, children }: Props) {
         <p className="text-xs">{desc}</p>
         <div className="">
           <p className="text-xs font-semibold">Recomendations:</p>
-          <ul className="list-disc list-inside">{children}</ul>
+          <ul className="list-disc list-outside ml-4">{children}</ul>
         </div>
       </div>
       <div className="">

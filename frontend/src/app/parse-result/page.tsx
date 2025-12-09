@@ -134,7 +134,8 @@ export default function ParseResult() {
       });
 
       const analysis = await response.json();
-      console.log("AI Analysis Result:", analysis);
+      // console.log("AI Analysis Result:", analysis);
+      console.log("AI Analysis Result New:", analysis);
 
       if (!response.ok) {
         alert("Failed: " + analysis.error);
@@ -147,7 +148,7 @@ export default function ParseResult() {
         localStorage.setItem("analysisData", JSON.stringify(analysis.data));
         console.log("ANALYSIS DATA:", analysis.data);
         alert("Analysis completed!");
-        router.push("/analyze-result/overview");
+        router.push("/result/cv/overview");
       }
     } catch (error: unknown) {
       if (error instanceof Error) {

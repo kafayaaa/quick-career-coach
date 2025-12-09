@@ -3,63 +3,69 @@ import { model } from "../services/gemini";
 export async function aiEvaluate(submissions: any[]) {
   try {
     const prompt = `
-            You are an expert interview evaluator. Evaluate the candidate's answers.
+          You are an expert interview evaluator. Evaluate the candidate's answers carefully.
 
-            Return your ENTIRE RESPONSE strictly in valid JSON ONLY.
-            Do NOT include explanation outside JSON.
-            Do NOT include markdown.
-            Do NOT include backticks.  
-            Do NOT include text before or after JSON.
+          Return your ENTIRE RESPONSE strictly in valid JSON ONLY.
+          Do NOT include explanation outside JSON.
+          Do NOT include markdown.
+          Do NOT include backticks.
+          Do NOT include text before or after JSON.
 
-            Evaluation criteria:
-            1. Structure (25%)
-            - Clear beginning/middle/end
-            - Logical flow
-            - STAR method (for behavioral)
+          Here are the candidate's submissions:
 
-            2. Content (35%)
-            - Specific examples
-            - Quantifiable results
-            - Relevant to question
-            - Depth of explanation
+          ${submissions
+            .map(
+              (s, i) => `
+          Question ${i + 1} (${s.type}):
+          ${s.question}
 
-            3. Communication (20%)
-            - Clarity
-            - Conciseness
-            - Professional tone
+          Answer:
+          ${s.answer}
+          `
+            )
+            .join("\n")}
 
-            4. Technical accuracy (20%) — for technical questions
-            - Correct concepts
-            - Demonstrates understanding
+          Your JSON output MUST follow this EXACT structure:
 
-            Here are the candidate's submissions:
+          {
+            "overallScore": number, 
+            "questions": [
+              {
+                "questionNumber": number,
+                "questionType": "behavioral" | "technical" | "situational",
+                "score": number,
+                "strengths": string[],
+                "improvements": string[],
+                "betterAnswerExample": string
+              }
+            ],
+            "summary": string
+          }
 
-            ${submissions
-              .map(
-                (s, i) => `
-            Question ${i + 1} (${s.type}):
-            ${s.question}
+          Scoring rules per question:
+          - Score from 1–100.
+          - Consider Structure, Content Quality, Communication Clarity, Technical Accuracy (if applicable).
 
-            Answer:
-            ${s.answer}
-            `
-              )
-              .join("\n")}
+          Evaluation guidelines:
+          1. Strengths:
+            - What the candidate did well
+            - Positive behaviors or clarity
+            - Strong examples, metrics, or reasoning
 
-           
-           Your JSON output MUST follow this structure:
-            {
-            "overallScore": number,
-            "criteria": {
-                "structure": number,
-                "content": number,
-                "communication": number,
-                "technical": number
-            },
-            "strengths": string[],
-            "improvements": string[],
-            "improvedAnswer": string
-            }
+          2. Improvements:
+            - What was missing
+            - What could be clearer
+            - What should be added for a better answer
+
+          3. Better Answer Example:
+            - Provide a rewritten answer that is clearer, more structured, and more impressive
+            - Use STAR method for behavioral questions when helpful
+
+          4. Summary:
+            - A concise overall interview performance overview
+            - Mention consistency, communication style, depth of knowledge, and confidence indicators
+          }
+
     `;
     const result = await model.generateContent(prompt);
     let aiResponse = result.response.text().trim();

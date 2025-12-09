@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { aiAnalyzeCV } from "../utils/aiAnalyze";
+import { aiAnalyzeCVNew } from "../utils/aiAnalyzeNew";
 
 export const analyzeCV = async (req: Request, res: Response) => {
   try {
@@ -10,7 +11,8 @@ export const analyzeCV = async (req: Request, res: Response) => {
     const data = req.body;
     console.log("Received Data: ", data);
 
-    const aiData = await aiAnalyzeCV(data, data.targetRole);
+    // const aiData = await aiAnalyzeCV(data, data.targetRole);
+    const aiData = await aiAnalyzeCVNew(data, data.targetRole);
     console.log(aiData);
 
     if (!aiData) {

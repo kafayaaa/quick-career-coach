@@ -1,11 +1,16 @@
 "use client";
 
+import { Evaluate } from "@/types/evaluate";
 import { Question } from "@/types/question";
 import { createContext, useContext, useState } from "react";
 
 interface InterviewContextType {
   question: Question[] | [];
   setQuestion: (data: Question[] | []) => void;
+  evaluation: Evaluate | null;
+  setEvaluation: (data: Evaluate | null) => void;
+  answer: string[] | [];
+  setAnswer: (data: string[] | []) => void;
   role: string;
   setRole: (data: string) => void;
   loading: boolean;
@@ -22,6 +27,8 @@ export const InterviewProvider = ({
   children: React.ReactNode;
 }) => {
   const [question, setQuestion] = useState<Question[] | []>([]);
+  const [evaluation, setEvaluation] = useState<Evaluate | null>(null);
+  const [answer, setAnswer] = useState<string[] | []>([]);
   const [role, setRole] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -30,6 +37,10 @@ export const InterviewProvider = ({
       value={{
         question,
         setQuestion,
+        answer,
+        setAnswer,
+        evaluation,
+        setEvaluation,
         role,
         setRole,
         loading,
