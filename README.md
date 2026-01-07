@@ -1,4 +1,16 @@
-# Quick Career Coach 🚀
+<h1 align="center">🚀 Quick Career Coach</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+  <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" />
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white" />
+  <img src="https://img.shields.io/badge/Google_Gemini-8E75C2?style=for-the-badge&logo=googlegemini&logoColor=white" />
+</p>
+
+---
 
 Quick Career Coach is an AI-powered platform designed to help professionals and students navigate their career paths with ease. From generating industry insights to building professional resumes, this tool leverages artificial intelligence to provide personalized career guidance.
 
@@ -31,31 +43,31 @@ Follow these steps to set up the project locally:
 ### Installation
 
 1. **Clone the repository:**
-   
+   ```bash
    git clone [https://github.com/kafayaaa/quick-career-coach.git](https://github.com/kafayaaa/quick-career-coach.git)
    cd quick-career-coach
 
 2. **Install dependencies:**
-
+   ```bash
    npm install
 
 3. **Set up Environment Variables: Create a .env file in the root directory and add your credentials:**
-
+   ```bash
    DATABASE_URL=your_postgresql_url
    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key
    CLERK_SECRET_KEY=your_clerk_secret
    GEMINI_API_KEY=your_gemini_api_key
 
 4. **Database Sync:**
-
+   ```bash
    npx prisma generate
    npx prisma db push
 
 5. **Run the development server:**
-
+   ```bash
    npm run dev
 
-   Open http://localhost:3000 with your browser to see the result.
+Open http://localhost:3000 with your browser to see the result.
 
 ## 📂 Project Structure
 
