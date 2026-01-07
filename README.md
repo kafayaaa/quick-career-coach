@@ -1,5 +1,5 @@
-<div align="center" style="display: flex; align-items: center; justify-content: center; gap: 15px;">
-  <img src="./frontend/public/logo.webp" alt="Logo" width="120" style="margin-bottom: 10px;">
+<div align="center" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+  <img src="./frontend/public/logo.webp" alt="Logo" width="120">
   <h1 style="border-bottom: none; margin-bottom: 20px;">Quick Career Coach</h1>
 </div>
 
