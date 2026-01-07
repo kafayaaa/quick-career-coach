@@ -1,6 +1,8 @@
-
-  <img src="./frontend/public/logo.webp" alt="Logo" width="120" align="center" />
-  <h1 align="center">Quick Career Coach</h1>
+<div align="center">
+  
+  <img src="./frontend/public/logo.webp" alt="Logo" width="100" />
+  <h1>Quick Career Coach</h1>
+</div>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
