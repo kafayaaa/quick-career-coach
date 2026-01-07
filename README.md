@@ -1,6 +1,6 @@
 <div align="center">
   
-  <img src="./frontend/public/logo.webp" alt="Logo" width="100" />
+  <img src="./frontend/public/logo.webp" alt="Logo" width="150" />
   <h1>Quick Career Coach</h1>
 </div>
 
