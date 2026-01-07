@@ -1,4 +1,7 @@
-<h1 align="center">🚀 Quick Career Coach</h1>
+<h1 align="center">
+  <img src="./frontend/public/logo.webp" alt="Logo" width="50" height="50" />
+  Quick Career Coach
+</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
@@ -6,7 +9,6 @@
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
   <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" />
   <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
-  <img src="https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white" />
   <img src="https://img.shields.io/badge/Google_Gemini-8E75C2?style=for-the-badge&logo=googlegemini&logoColor=white" />
 </p>
 
@@ -37,33 +39,35 @@ Follow these steps to set up the project locally:
 - Node.js (v18 or higher)
 - npm, yarn, or pnpm
 - A Google Gemini API Key
-- A Clerk Account (for Auth)
-- A Neon DB / PostgreSQL instance
+- PostgreSQL instance
 
 ### Installation
 
 1. **Clone the repository:**
+   
    ```bash
    git clone [https://github.com/kafayaaa/quick-career-coach.git](https://github.com/kafayaaa/quick-career-coach.git)
    cd quick-career-coach
 
-2. **Install dependencies:**
+3. **Install dependencies:**
+   
    ```bash
    npm install
 
-3. **Set up Environment Variables: Create a .env file in the root directory and add your credentials:**
+5. **Set up Environment Variables: Create a .env file in the root directory and add your credentials:**
+   
    ```bash
    DATABASE_URL=your_postgresql_url
-   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key
-   CLERK_SECRET_KEY=your_clerk_secret
    GEMINI_API_KEY=your_gemini_api_key
 
-4. **Database Sync:**
+7. **Database Sync:**
+   
    ```bash
    npx prisma generate
    npx prisma db push
 
-5. **Run the development server:**
+9. **Run the development server:**
+    
    ```bash
    npm run dev
 
