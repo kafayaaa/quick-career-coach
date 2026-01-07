@@ -1,7 +1,7 @@
-<h1 align="center">
-  <img src="./frontend/public/logo.webp" alt="Logo" width="75" style="vertical-align: middle; margin-right: 10px;" />
-  <span style="vertical-align: middle;">Quick Career Coach</span>
-</h1>
+<div align="center" style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+  <img src="./frontend/public/logo.webp" alt="Logo" width="75" style="margin-bottom: 10px;">
+  <h1 style="border-bottom: none; margin-bottom: 20px;">Quick Career Coach</h1>
+</div>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
