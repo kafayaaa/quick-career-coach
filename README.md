@@ -1,6 +1,6 @@
 <h1 align="center">
-  <img src="./frontend/public/logo.webp" alt="Logo" width="50" height="50" />
-  Quick Career Coach
+  <img src="./frontend/public/logo.webp" alt="Logo" width="75" style="vertical-align: middle; margin-right: 10px;" />
+  <span style="vertical-align: middle;">Quick Career Coach</span>
 </h1>
 
 <p align="center">
